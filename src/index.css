@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 214 14% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 214 14% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 214 14% 20%;
+
+    --primary: 174 65% 41%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 261 77% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 214 14% 95%;
+    --muted-foreground: 214 14% 46%;
+
+    --accent: 215 84% 61%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 14% 90%;
+    --input: 214 14% 90%;
+    --ring: 174 65% 41%;
+
+    --radius: 0.75rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(174 65% 41%), hsl(261 77% 60%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(174 65% 98%));
+    --shadow-soft: 0 4px 20px rgba(20, 184, 166, 0.08);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 214 14% 20%;
+    --sidebar-primary: 174 65% 41%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 214 14% 96%;
+    --sidebar-accent-foreground: 174 65% 41%;
+    --sidebar-border: 214 14% 90%;
+    --sidebar-ring: 174 65% 41%;
+  }
+
+  .dark {
+    --background: 214 20% 12%;
+    --foreground: 0 0% 98%;
+
+    --card: 214 20% 15%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 214 20% 15%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 174 65% 41%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 261 77% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 214 20% 20%;
+    --muted-foreground: 214 14% 65%;
+
+    --accent: 215 84% 61%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 25%;
+    --input: 214 20% 25%;
+    --ring: 174 65% 41%;
+
+    --sidebar-background: 214 20% 15%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 174 65% 41%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 214 20% 20%;
+    --sidebar-accent-foreground: 174 65% 41%;
+    --sidebar-border: 214 20% 25%;
+    --sidebar-ring: 174 65% 41%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
