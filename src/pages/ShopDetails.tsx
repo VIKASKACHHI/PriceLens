@@ -33,6 +33,8 @@ const ShopDetails = () => {
   const [shop, setShop] = useState<Shop | null>(null);
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  // Read Google Maps API key from Vite env var. Set this in your deployment (Vercel) as VITE_GOOGLE_MAPS_API_KEY.
+  const googleMapsKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | undefined;
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -143,14 +145,20 @@ const ShopDetails = () => {
             {shop.latitude && shop.longitude && (
               <div>
                 <p className="font-medium mb-2">Location</p>
-                <iframe
-                  width="100%"
-                  height="200"
-                  frameBorder="0"
-                  style={{ border: 0, borderRadius: "0.5rem" }}
-                  src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${shop.latitude},${shop.longitude}&zoom=15`}
-                  allowFullScreen
-                />
+                {googleMapsKey ? (
+                  <iframe
+                    width="100%"
+                    height="200"
+                    frameBorder="0"
+                    style={{ border: 0, borderRadius: "0.5rem" }}
+                    src={`https://www.google.com/maps/embed/v1/place?key=${googleMapsKey}&q=${shop.latitude},${shop.longitude}&zoom=15`}
+                    allowFullScreen
+                  />
+                ) : (
+                  <div className="p-4 rounded bg-muted text-sm text-muted-foreground">
+                    Google Maps API key is not configured. Set VITE_GOOGLE_MAPS_API_KEY in your environment to enable the embedded map.
+                  </div>
+                )}
               </div>
             )}
           </div>
